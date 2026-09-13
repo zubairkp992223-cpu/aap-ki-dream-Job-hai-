@@ -11,7 +11,11 @@
     header h1 { font-size: 28px; margin-bottom: 5px; }
     
     .profile-card { background: white; max-width: 600px; margin: 20px auto; padding: 20px; border-radius: 10px; text-align: center; box-shadow: 0 4px 6px rgba(0,0,0,0.1); }
-    .profile-card h2 { color: #1e88e5; margin-bottom: 10px; }
+    
+    /* Profile Image Styling */
+    .profile-img { width: 130px; height: 130px; border-radius: 50%; object-fit: cover; border: 4px solid #1e88e5; margin-bottom: 12px; box-shadow: 0 4px 8px rgba(0,0,0,0.15); }
+    
+    .profile-card h2 { color: #1e88e5; margin-bottom: 5px; }
     
     .btn-group { display: flex; justify-content: center; gap: 10px; margin-top: 15px; flex-wrap: wrap; }
     .btn { padding: 10px 20px; border-radius: 5px; text-decoration: none; color: white; font-weight: bold; display: inline-block; }
@@ -57,6 +61,7 @@
   </header>
 
   <div class="profile-card">
+    <img src="profile.jpg" alt="Zubair Pathan" class="profile-img">
     <h2>Zubair Pathan</h2>
     <p>Job Consultant / Placement Support</p>
     <div class="btn-group">
@@ -71,37 +76,37 @@
     <p style="text-align: center; margin-bottom: 15px; color: #666;">(किसी भी जॉब पर क्लिक करके सैलरी और डॉक्युमेंट्स की जानकारी देखें)</p>
     
     <div class="job-grid">
-      <div class="job-card" onclick="openDetails('Factory Worker', '₹15,000 - ₹21,000 / महीना (+ PF & ESIC)', 'Aadhar Card, PAN Card, Bank Passbook, 2 Passport Photos', 'Production Helper, Machine Helper, Packing Staff', '8 Pass / 10 Pass / Uneducated')">
-        🏭 Factory Worker
-        <span class="click-hint">👉 डिटेल्स देखने के लिए क्लिक करें</span>
-      </div>
-
-      <div class="job-card" onclick="openDetails('Warehouse Worker', '₹16,000 - ₹22,000 / महीना (+ PF & ESIC)', 'Aadhar Card, PAN Card, Bank Passbook, Photo', 'Loading/Unloading, Sorting Staff, Picker', '10th Pass')">
-        📦 Warehouse Worker
-        <span class="click-hint">👉 डिटेल्स देखने के लिए क्लिक करें</span>
-      </div>
-
-      <div class="job-card" onclick="openDetails('Office Staff', '₹18,000 - ₹28,000 / महीना (+ PF & ESIC)', 'Aadhar Card, PAN Card, 10th/12th/Graduation Marksheet, Resume, Bank Passbook', '<b>उपलब्ध पोस्ट:</b><br>• Receptionist<br>• Office Assistant / Peon<br>• Admin Executive<br>• Account Assistant<br>• Computer Operator', '12th Pass / Graduate')">
-        🏢 Office Staff
+      <div class="job-card" onclick="openDetails('Office Staff', '₹25,000 - ₹38,000 / महीना (+ PF & ESIC)', 'Aadhar Card, PAN Card, 10th/12th/Graduation Marksheet, Resume, Bank Passbook', '<b>उपलब्ध पोस्ट:</b><br>• Receptionist<br>• Office Assistant / Peon<br>• Admin Executive<br>• Account Assistant<br>• Computer Operator', '12th Pass / Graduate')">
+        🏢 Office Staff ⭐ (Highest Pay)
         <span class="click-hint">👉 सब-पोस्ट व डिटेल्स देखें</span>
       </div>
 
-      <div class="job-card" onclick="openDetails('Delivery Boy', '₹18,000 - ₹28,000 + Incentive (+ PF & ESIC)', 'Driving License, RC (अगर बाइक है), Aadhar Card, PAN Card, Bank Account', 'Courier Delivery, Food Delivery, Grocery Delivery', '10th Pass & Bike/DL')">
-        🚚 Delivery Boy
-        <span class="click-hint">👉 डिटेल्स देखने के लिए क्लिक करें</span>
-      </div>
-
-      <div class="job-card" onclick="openDetails('Security Guard', '₹15,000 - ₹19,000 / महीना (+ PF & ESIC)', 'Aadhar Card, PAN Card, Police Verification, Photo, Bank Passbook', 'ATM Guard, Residential Guard, Factory Security', '10th Pass / Minimum Height 5.6 ft')">
-        🛡️ Security Guard
-        <span class="click-hint">👉 डिटेल्स देखने के लिए क्लिक करें</span>
-      </div>
-
-      <div class="job-card" onclick="openDetails('Computer Operator & Data Entry', '₹17,000 - ₹25,000 / महीना (+ PF & ESIC)', 'Aadhar Card, PAN Card, Marksheets, Computer Certificate (Basic/Tally)', 'Data Entry Operator, Back Office Executive, Billing Executive', '12th Pass + Basic Computer Knowledge')">
+      <div class="job-card" onclick="openDetails('Computer Operator & Data Entry', '₹22,000 - ₹32,000 / महीना (+ PF & ESIC)', 'Aadhar Card, PAN Card, Marksheets, Computer Certificate (Basic/Tally)', 'Data Entry Operator, Back Office Executive, Billing Executive', '12th Pass + Basic Computer Knowledge')">
         💻 Computer Operator
         <span class="click-hint">👉 डिटेल्स देखने के लिए क्लिक करें</span>
       </div>
 
-      <div class="job-card" onclick="openDetails('Telecaller / Customer Support', '₹15,000 - ₹23,000 + Incentive (+ PF & ESIC)', 'Aadhar Card, PAN Card, Marksheet, Resume', 'Inbound/Outbound Calling, Tele-Sales, Customer Care', '12th Pass (Good Communication)')">
+      <div class="job-card" onclick="openDetails('Factory Worker', '₹21,000 - ₹27,000 / महीना (+ PF & ESIC)', 'Aadhar Card, PAN Card, Bank Passbook, 2 Passport Photos', 'Production Helper, Machine Helper, Packing Staff', '8 Pass / 10 Pass / Uneducated')">
+        🏭 Factory Worker
+        <span class="click-hint">👉 डिटेल्स देखने के लिए क्लिक करें</span>
+      </div>
+
+      <div class="job-card" onclick="openDetails('Warehouse Worker', '₹20,000 - ₹26,000 / महीना (+ PF & ESIC)', 'Aadhar Card, PAN Card, Bank Passbook, Photo', 'Loading/Unloading, Sorting Staff, Picker', '10th Pass')">
+        📦 Warehouse Worker
+        <span class="click-hint">👉 डिटेल्स देखने के लिए क्लिक करें</span>
+      </div>
+
+      <div class="job-card" onclick="openDetails('Delivery Boy', '₹22,000 - ₹34,000 + Incentive (+ PF & ESIC)', 'Driving License, RC (अगर बाइक है), Aadhar Card, PAN Card, Bank Account', 'Courier Delivery, Food Delivery, Grocery Delivery', '10th Pass & Bike/DL')">
+        🚚 Delivery Boy
+        <span class="click-hint">👉 डिटेल्स देखने के लिए क्लिक करें</span>
+      </div>
+
+      <div class="job-card" onclick="openDetails('Security Guard', '₹20,000 - ₹24,000 / महीना (+ PF & ESIC)', 'Aadhar Card, PAN Card, Police Verification, Photo, Bank Passbook', 'ATM Guard, Residential Guard, Factory Security', '10th Pass / Minimum Height 5.6 ft')">
+        🛡️ Security Guard
+        <span class="click-hint">👉 डिटेल्स देखने के लिए क्लिक करें</span>
+      </div>
+
+      <div class="job-card" onclick="openDetails('Telecaller / Customer Support', '₹20,000 - ₹28,000 + Incentive (+ PF & ESIC)', 'Aadhar Card, PAN Card, Marksheet, Resume', 'Inbound/Outbound Calling, Tele-Sales, Customer Care', '12th Pass (Good Communication)')">
         📞 Telecaller
         <span class="click-hint">👉 डिटेल्स देखने के लिए क्लिक करें</span>
       </div>
