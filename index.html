@@ -22,8 +22,23 @@
     .container { max-width: 800px; margin: 20px auto; padding: 0 15px; }
     .section-title { text-align: center; margin: 30px 0 15px 0; color: #1565c0; }
     
-    .job-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px; }
-    .job-card { background: white; padding: 20px; border-radius: 8px; text-align: center; font-weight: bold; box-shadow: 0 2px 4px rgba(0,0,0,0.05); border: 1px solid #e0e0e0; }
+    .job-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 15px; }
+    .job-card { background: white; padding: 20px; border-radius: 8px; text-align: center; font-weight: bold; box-shadow: 0 2px 4px rgba(0,0,0,0.05); border: 2px solid #e0e0e0; cursor: pointer; transition: transform 0.2s, border-color 0.2s; }
+    .job-card:hover { transform: translateY(-3px); border-color: #1e88e5; }
+    .click-hint { font-size: 12px; color: #1e88e5; display: block; margin-top: 8px; font-weight: normal; }
+
+    /* Modal / Popup Styles */
+    .modal-overlay { display: none; position: fixed; top:0; left:0; width:100%; height:100%; background: rgba(0,0,0,0.6); justify-content: center; align-items: center; z-index: 1000; padding: 15px; }
+    .modal-content { background: white; padding: 25px; border-radius: 10px; max-width: 500px; width: 100%; position: relative; animation: fadeIn 0.3s ease; }
+    .close-btn { position: absolute; top: 10px; right: 15px; font-size: 24px; font-weight: bold; cursor: pointer; color: #888; }
+    .close-btn:hover { color: #000; }
+    .modal-title { color: #1565c0; margin-bottom: 15px; font-size: 22px; }
+    .modal-detail { margin-bottom: 12px; line-height: 1.5; text-align: left; }
+    .modal-detail strong { color: #333; }
+    
+    .group-notice { background-color: #e8f5e9; border: 1px dashed #25D366; padding: 12px; border-radius: 8px; margin-top: 15px; text-align: center; }
+    .group-notice p { font-size: 14px; font-weight: bold; color: #2e7d32; margin-bottom: 8px; }
+    .group-btn-modal { display: block; text-align: center; background: #25D366; color: white; padding: 10px; border-radius: 5px; text-decoration: none; font-weight: bold; font-size: 15px; }
 
     .form-container { background: white; padding: 25px; border-radius: 10px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); margin-top: 30px; }
     .form-group { margin-bottom: 15px; text-align: left; }
@@ -53,20 +68,48 @@
 
   <div class="container">
     <h2 class="section-title">Available Job Categories</h2>
+    <p style="text-align: center; margin-bottom: 15px; color: #666;">(किसी भी जॉब पर क्लिक करके सैलरी और डॉक्युमेंट्स की जानकारी देखें)</p>
+    
     <div class="job-grid">
-      <div class="job-card">🏭 Factory Worker</div>
-      <div class="job-card">📦 Warehouse Worker</div>
-      <div class="job-card">🚚 Delivery Boy</div>
-      <div class="job-card">🛡️ Security Guard</div>
-      <div class="job-card">💻 Computer Operator</div>
-      <div class="job-card">📞 Telecaller</div>
-      <div class="job-card">🏢 Office Staff</div>
-      <div class="job-card">📊 Data Entry Operator</div>
+      <div class="job-card" onclick="openDetails('Factory Worker', '₹15,000 - ₹21,000 / महीना (+ PF & ESIC)', 'Aadhar Card, PAN Card, Bank Passbook, 2 Passport Photos', 'Production Helper, Machine Helper, Packing Staff', '8 Pass / 10 Pass / Uneducated')">
+        🏭 Factory Worker
+        <span class="click-hint">👉 डिटेल्स देखने के लिए क्लिक करें</span>
+      </div>
+
+      <div class="job-card" onclick="openDetails('Warehouse Worker', '₹16,000 - ₹22,000 / महीना (+ PF & ESIC)', 'Aadhar Card, PAN Card, Bank Passbook, Photo', 'Loading/Unloading, Sorting Staff, Picker', '10th Pass')">
+        📦 Warehouse Worker
+        <span class="click-hint">👉 डिटेल्स देखने के लिए क्लिक करें</span>
+      </div>
+
+      <div class="job-card" onclick="openDetails('Office Staff', '₹18,000 - ₹28,000 / महीना (+ PF & ESIC)', 'Aadhar Card, PAN Card, 10th/12th/Graduation Marksheet, Resume, Bank Passbook', '<b>उपलब्ध पोस्ट:</b><br>• Receptionist<br>• Office Assistant / Peon<br>• Admin Executive<br>• Account Assistant<br>• Computer Operator', '12th Pass / Graduate')">
+        🏢 Office Staff
+        <span class="click-hint">👉 सब-पोस्ट व डिटेल्स देखें</span>
+      </div>
+
+      <div class="job-card" onclick="openDetails('Delivery Boy', '₹18,000 - ₹28,000 + Incentive (+ PF & ESIC)', 'Driving License, RC (अगर बाइक है), Aadhar Card, PAN Card, Bank Account', 'Courier Delivery, Food Delivery, Grocery Delivery', '10th Pass & Bike/DL')">
+        🚚 Delivery Boy
+        <span class="click-hint">👉 डिटेल्स देखने के लिए क्लिक करें</span>
+      </div>
+
+      <div class="job-card" onclick="openDetails('Security Guard', '₹15,000 - ₹19,000 / महीना (+ PF & ESIC)', 'Aadhar Card, PAN Card, Police Verification, Photo, Bank Passbook', 'ATM Guard, Residential Guard, Factory Security', '10th Pass / Minimum Height 5.6 ft')">
+        🛡️ Security Guard
+        <span class="click-hint">👉 डिटेल्स देखने के लिए क्लिक करें</span>
+      </div>
+
+      <div class="job-card" onclick="openDetails('Computer Operator & Data Entry', '₹17,000 - ₹25,000 / महीना (+ PF & ESIC)', 'Aadhar Card, PAN Card, Marksheets, Computer Certificate (Basic/Tally)', 'Data Entry Operator, Back Office Executive, Billing Executive', '12th Pass + Basic Computer Knowledge')">
+        💻 Computer Operator
+        <span class="click-hint">👉 डिटेल्स देखने के लिए क्लिक करें</span>
+      </div>
+
+      <div class="job-card" onclick="openDetails('Telecaller / Customer Support', '₹15,000 - ₹23,000 + Incentive (+ PF & ESIC)', 'Aadhar Card, PAN Card, Marksheet, Resume', 'Inbound/Outbound Calling, Tele-Sales, Customer Care', '12th Pass (Good Communication)')">
+        📞 Telecaller
+        <span class="click-hint">👉 डिटेल्स देखने के लिए क्लिक करें</span>
+      </div>
     </div>
 
+    <!-- Form Section -->
     <div class="form-container">
       <h2 style="text-align: center; margin-bottom: 20px; color: #1565c0;">अपना Resume भेजें</h2>
-      <!-- Formspree Endpoint -->
       <form action="https://formspree.io/f/YOUR_FORMSPREE_ID" method="POST" enctype="multipart/form-data">
         <div class="form-group">
           <label for="name">Candidate Name (पूरा नाम लिखें)</label>
@@ -85,10 +128,50 @@
     </div>
   </div>
 
+  <!-- Popup Modal Structure -->
+  <div class="modal-overlay" id="jobModal">
+    <div class="modal-content">
+      <span class="close-btn" onclick="closeDetails()">&times;</span>
+      <h3 class="modal-title" id="mTitle">Job Title</h3>
+      <div class="modal-detail"><strong>💰 Expected Salary:</strong> <span id="mSalary"></span></div>
+      <div class="modal-detail"><strong>📌 Post / Roles:</strong> <br><span id="mPost"></span></div>
+      <div class="modal-detail"><strong>🎓 Qualification:</strong> <span id="mQual"></span></div>
+      <div class="modal-detail"><strong>📄 Required Documents:</strong> <br><span id="mDocs"></span></div>
+      
+      <!-- WhatsApp Group Join Section -->
+      <div class="group-notice">
+        <p>📢 अगर आप इस जॉब में Interested हैं तो तुरंत हमारा WhatsApp Group ज्वाइन करें!</p>
+        <a href="https://chat.whatsapp.com/HIZ69Rm9ZZz5zrFandwpiM?s=cl&p=a&mlu=4&ilr=4" target="_blank" class="group-btn-modal">👉 Join WhatsApp Group Now</a>
+      </div>
+    </div>
+  </div>
+
   <footer>
     <p>Contact: 7030305124 | Email: zubairkp992223@gmail.com</p>
     <p>© 2026 Job Available Hai. All Rights Reserved.</p>
   </footer>
+
+  <script>
+    function openDetails(title, salary, docs, post, qual) {
+      document.getElementById('mTitle').innerText = title;
+      document.getElementById('mSalary').innerText = salary;
+      document.getElementById('mDocs').innerHTML = docs;
+      document.getElementById('mPost').innerHTML = post;
+      document.getElementById('mQual').innerText = qual;
+      document.getElementById('jobModal').style.display = 'flex';
+    }
+
+    function closeDetails() {
+      document.getElementById('jobModal').style.display = 'none';
+    }
+
+    window.onclick = function(event) {
+      var modal = document.getElementById('jobModal');
+      if (event.target == modal) {
+        modal.style.display = "none";
+      }
+    }
+  </script>
 
 </body>
 </html>
