@@ -3,97 +3,180 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Candidate Application Form</title>
+  <title>Job Available Hai - Zubair Pathan</title>
   <style>
-    body {
-      font-family: Arial, sans-serif;
-      background-color: #f4f6f8;
-      padding: 20px;
-    }
-    .form-container {
-      max-width: 500px;
-      margin: 0 auto;
-      background: #ffffff;
-      padding: 25px;
-      border-radius: 8px;
-      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-    }
-    .form-container h2 {
-      text-align: center;
-      color: #333333;
-      margin-bottom: 20px;
-    }
-    .form-group {
-      margin-bottom: 15px;
-    }
-    .form-group label {
-      display: block;
-      font-weight: bold;
-      margin-bottom: 5px;
-      color: #555;
-    }
-    .form-group input[type="text"],
-    .form-group input[type="email"],
-    .form-group input[type="file"] {
-      width: 100%;
-      padding: 10px;
-      border: 1px solid #ccc;
-      border-radius: 4px;
-      box-sizing: border-box;
-    }
-    .submit-btn {
-      width: 100%;
-      background-color: #007bff;
-      color: white;
-      padding: 12px;
-      border: none;
-      border-radius: 4px;
-      font-size: 16px;
-      font-weight: bold;
-      cursor: pointer;
-    }
-    .submit-btn:hover {
-      background-color: #0056b3;
-    }
+    * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
+    body { background-color: #f4f7f6; color: #333; }
+    header { background-color: #1e88e5; color: white; text-align: center; padding: 25px 15px; }
+    header h1 { font-size: 28px; margin-bottom: 5px; }
+    
+    .profile-card { background: white; max-width: 600px; margin: 20px auto; padding: 20px; border-radius: 10px; text-align: center; box-shadow: 0 4px 6px rgba(0,0,0,0.1); }
+    
+    /* Profile Image Styling */
+    .profile-img { width: 130px; height: 130px; border-radius: 50%; object-fit: cover; border: 4px solid #1e88e5; margin-bottom: 12px; box-shadow: 0 4px 8px rgba(0,0,0,0.15); }
+    
+    .profile-card h2 { color: #1e88e5; margin-bottom: 5px; }
+    
+    .btn-group { display: flex; justify-content: center; gap: 10px; margin-top: 15px; flex-wrap: wrap; }
+    .btn { padding: 10px 20px; border-radius: 5px; text-decoration: none; color: white; font-weight: bold; display: inline-block; }
+    .btn-whatsapp { background-color: #25D366; }
+    .btn-call { background-color: #0288d1; }
+    .btn-email { background-color: #6a1b9a; }
+
+    .container { max-width: 800px; margin: 20px auto; padding: 0 15px; }
+    .section-title { text-align: center; margin: 30px 0 15px 0; color: #1565c0; }
+    
+    .job-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 15px; }
+    .job-card { background: white; padding: 20px; border-radius: 8px; text-align: center; font-weight: bold; box-shadow: 0 2px 4px rgba(0,0,0,0.05); border: 2px solid #e0e0e0; cursor: pointer; transition: transform 0.2s, border-color 0.2s; }
+    .job-card:hover { transform: translateY(-3px); border-color: #1e88e5; }
+    .click-hint { font-size: 12px; color: #1e88e5; display: block; margin-top: 8px; font-weight: normal; }
+
+    /* Modal / Popup Styles */
+    .modal-overlay { display: none; position: fixed; top:0; left:0; width:100%; height:100%; background: rgba(0,0,0,0.6); justify-content: center; align-items: center; z-index: 1000; padding: 15px; }
+    .modal-content { background: white; padding: 25px; border-radius: 10px; max-width: 500px; width: 100%; position: relative; animation: fadeIn 0.3s ease; }
+    .close-btn { position: absolute; top: 10px; right: 15px; font-size: 24px; font-weight: bold; cursor: pointer; color: #888; }
+    .close-btn:hover { color: #000; }
+    .modal-title { color: #1565c0; margin-bottom: 15px; font-size: 22px; }
+    .modal-detail { margin-bottom: 12px; line-height: 1.5; text-align: left; }
+    .modal-detail strong { color: #333; }
+    
+    .group-notice { background-color: #e8f5e9; border: 1px dashed #25D366; padding: 12px; border-radius: 8px; margin-top: 15px; text-align: center; }
+    .group-notice p { font-size: 14px; font-weight: bold; color: #2e7d32; margin-bottom: 8px; }
+    .group-btn-modal { display: block; text-align: center; background: #25D366; color: white; padding: 10px; border-radius: 5px; text-decoration: none; font-weight: bold; font-size: 15px; }
+
+    .form-container { background: white; padding: 25px; border-radius: 10px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); margin-top: 30px; }
+    .form-group { margin-bottom: 15px; text-align: left; }
+    .form-group label { display: block; margin-bottom: 5px; font-weight: bold; }
+    .form-group input { width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 5px; }
+    .submit-btn { background-color: #1e88e5; color: white; border: none; padding: 12px 20px; width: 100%; border-radius: 5px; font-size: 16px; font-weight: bold; cursor: pointer; }
+    
+    footer { text-align: center; padding: 20px; background: #0d47a1; color: white; margin-top: 40px; }
   </style>
 </head>
 <body>
 
-  <div class="form-container">
-    <h2>Job Application Form</h2>
+  <header>
+    <h1>Job Available Hai</h1>
+    <p>प्राइवेट जॉब्स की तलाश कर रहे उम्मीदवारों के लिए अवसर</p>
+  </header>
 
-    <!-- Formspree Endpoint with Resume Upload enabled -->
-    <form action="https://formspree.io/f/mdeorbyd" method="POST" enctype="multipart/form-data">
-      
-      <!-- Full Name -->
-      <div class="form-group">
-        <label for="name">Full Name:</label>
-        <input type="text" id="name" name="name" placeholder="Enter Full Name" required>
-      </div>
-
-      <!-- Email Address -->
-      <div class="form-group">
-        <label for="email">Email Address:</label>
-        <input type="email" id="email" name="_replyto" placeholder="Enter Email Address" required>
-      </div>
-
-      <!-- Candidate ID / Username -->
-      <div class="form-group">
-        <label for="username">Username / Candidate ID:</label>
-        <input type="text" id="username" name="username" placeholder="Enter Candidate ID" required>
-      </div>
-
-      <!-- Resume Upload -->
-      <div class="form-group">
-        <label for="resume">Upload Resume (PDF, DOC, DOCX):</label>
-        <input type="file" id="resume" name="attachment" accept=".pdf,.doc,.docx" required>
-      </div>
-
-      <!-- Submit Button -->
-      <button type="submit" class="submit-btn">Submit Application</button>
-
-    </form>
+  <div class="profile-card">
+    <img src="profile.jpg" alt="Zubair Pathan" class="profile-img">
+    <h2>Zubair Pathan</h2>
+    <p>Job Consultant / Placement Support</p>
+    <div class="btn-group">
+      <a href="https://wa.me/917030305124" class="btn btn-whatsapp" target="_blank">WhatsApp</a>
+      <a href="tel:7030305124" class="btn btn-call">Call Now</a>
+      <a href="mailto:zubairkp992223@gmail.com" class="btn btn-email">Email</a>
+    </div>
   </div>
+
+  <div class="container">
+    <h2 class="section-title">Available Job Categories</h2>
+    <p style="text-align: center; margin-bottom: 15px; color: #666;">(किसी भी जॉब पर क्लिक करके सैलरी और डॉक्युमेंट्स की जानकारी देखें)</p>
+    
+    <div class="job-grid">
+      <div class="job-card" onclick="openDetails('Office Staff', '₹25,000 - ₹38,000 / महीना (+ PF & ESIC)', 'Aadhar Card, PAN Card, 10th/12th/Graduation Marksheet, Resume, Bank Passbook', '<b>उपलब्ध पोस्ट:</b><br>• Receptionist<br>• Office Assistant / Peon<br>• Admin Executive<br>• Account Assistant<br>• Computer Operator', '12th Pass / Graduate')">
+        🏢 Office Staff ⭐ (Highest Pay)
+        <span class="click-hint">👉 सब-पोस्ट व डिटेल्स देखें</span>
+      </div>
+
+      <div class="job-card" onclick="openDetails('Computer Operator & Data Entry', '₹22,000 - ₹32,000 / महीना (+ PF & ESIC)', 'Aadhar Card, PAN Card, Marksheets, Computer Certificate (Basic/Tally)', 'Data Entry Operator, Back Office Executive, Billing Executive', '12th Pass + Basic Computer Knowledge')">
+        💻 Computer Operator
+        <span class="click-hint">👉 डिटेल्स देखने के लिए क्लिक करें</span>
+      </div>
+
+      <div class="job-card" onclick="openDetails('Factory Worker', '₹21,000 - ₹27,000 / महीना (+ PF & ESIC)', 'Aadhar Card, PAN Card, Bank Passbook, 2 Passport Photos', 'Production Helper, Machine Helper, Packing Staff', '8 Pass / 10 Pass / Uneducated')">
+        🏭 Factory Worker
+        <span class="click-hint">👉 डिटेल्स देखने के लिए क्लिक करें</span>
+      </div>
+
+      <div class="job-card" onclick="openDetails('Warehouse Worker', '₹20,000 - ₹26,000 / महीना (+ PF & ESIC)', 'Aadhar Card, PAN Card, Bank Passbook, Photo', 'Loading/Unloading, Sorting Staff, Picker', '10th Pass')">
+        📦 Warehouse Worker
+        <span class="click-hint">👉 डिटेल्स देखने के लिए क्लिक करें</span>
+      </div>
+
+      <div class="job-card" onclick="openDetails('Delivery Boy', '₹22,000 - ₹34,000 + Incentive (+ PF & ESIC)', 'Driving License, RC (अगर बाइक है), Aadhar Card, PAN Card, Bank Account', 'Courier Delivery, Food Delivery, Grocery Delivery', '10th Pass & Bike/DL')">
+        🚚 Delivery Boy
+        <span class="click-hint">👉 डिटेल्स देखने के लिए क्लिक करें</span>
+      </div>
+
+      <div class="job-card" onclick="openDetails('Security Guard', '₹20,000 - ₹24,000 / महीना (+ PF & ESIC)', 'Aadhar Card, PAN Card, Police Verification, Photo, Bank Passbook', 'ATM Guard, Residential Guard, Factory Security', '10th Pass / Minimum Height 5.6 ft')">
+        🛡️ Security Guard
+        <span class="click-hint">👉 डिटेल्स देखने के लिए क्लिक करें</span>
+      </div>
+
+      <div class="job-card" onclick="openDetails('Telecaller / Customer Support', '₹20,000 - ₹28,000 + Incentive (+ PF & ESIC)', 'Aadhar Card, PAN Card, Marksheet, Resume', 'Inbound/Outbound Calling, Tele-Sales, Customer Care', '12th Pass (Good Communication)')">
+        📞 Telecaller
+        <span class="click-hint">👉 डिटेल्स देखने के लिए क्लिक करें</span>
+      </div>
+    </div>
+
+    <!-- Form Section -->
+    <div class="form-container">
+      <h2 style="text-align: center; margin-bottom: 20px; color: #1565c0;">अपना Resume भेजें</h2>
+      <form action="https://formspree.io/f/YOUR_FORMSPREE_ID" method="POST" enctype="multipart/form-data">
+        <div class="form-group">
+          <label for="name">Candidate Name (पूरा नाम लिखें)</label>
+          <input type="text" id="name" name="name" required placeholder="अपना नाम दर्ज करें">
+        </div>
+        <div class="form-group">
+          <label for="phone">Mobile Number (मोबाइल नंबर)</label>
+          <input type="tel" id="phone" name="phone" required placeholder="10 अंकों का मोबाइल नंबर">
+        </div>
+        <div class="form-group">
+          <label for="resume">Upload Resume (PDF / DOC)</label>
+          <input type="file" id="resume" name="upload" accept=".pdf,.doc,.docx" required>
+        </div>
+        <button type="submit" class="submit-btn">Upload Resume</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- Popup Modal Structure -->
+  <div class="modal-overlay" id="jobModal">
+    <div class="modal-content">
+      <span class="close-btn" onclick="closeDetails()">&times;</span>
+      <h3 class="modal-title" id="mTitle">Job Title</h3>
+      <div class="modal-detail"><strong>💰 Expected Salary:</strong> <span id="mSalary"></span></div>
+      <div class="modal-detail"><strong>📌 Post / Roles:</strong> <br><span id="mPost"></span></div>
+      <div class="modal-detail"><strong>🎓 Qualification:</strong> <span id="mQual"></span></div>
+      <div class="modal-detail"><strong>📄 Required Documents:</strong> <br><span id="mDocs"></span></div>
+      
+      <!-- WhatsApp Group Join Section -->
+      <div class="group-notice">
+        <p>📢 अगर आप इस जॉब में Interested हैं तो तुरंत हमारा WhatsApp Group ज्वाइन करें!</p>
+        <a href="https://chat.whatsapp.com/HIZ69Rm9ZZz5zrFandwpiM?s=cl&p=a&mlu=4&ilr=4" target="_blank" class="group-btn-modal">👉 Join WhatsApp Group Now</a>
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    <p>Contact: 7030305124 | Email: zubairkp992223@gmail.com</p>
+    <p>© 2026 Job Available Hai. All Rights Reserved.</p>
+  </footer>
+
+  <script>
+    function openDetails(title, salary, docs, post, qual) {
+      document.getElementById('mTitle').innerText = title;
+      document.getElementById('mSalary').innerText = salary;
+      document.getElementById('mDocs').innerHTML = docs;
+      document.getElementById('mPost').innerHTML = post;
+      document.getElementById('mQual').innerText = qual;
+      document.getElementById('jobModal').style.display = 'flex';
+    }
+
+    function closeDetails() {
+      document.getElementById('jobModal').style.display = 'none';
+    }
+
+    window.onclick = function(event) {
+      var modal = document.getElementById('jobModal');
+      if (event.target == modal) {
+        modal.style.display = "none";
+      }
+    }
+  </script>
 
 </body>
 </html>
